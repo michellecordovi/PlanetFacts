@@ -1,12 +1,16 @@
 import data from '../data.json'
-// import {useState, useEffect} from 'react'
-// import EarthPage from './components/Earth'
+import NavBar from './components/NavBar';
 
 function App() {
     const planets = data;
-    // const [selectedPlanet, setSelectedPlanet] = useState("Earth")
+
     
-    return <p> Hello from {planets[Math.floor(Math.random() * 8)].name}!</p>
+    return (
+        <>
+            <NavBar/>
+            <p> Hello from {planets[Math.floor(Math.random() * 8)].name}!</p>
+        </>
+    )
 
 }
 
