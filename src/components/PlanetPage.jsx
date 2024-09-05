@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import {useParams} from 'react-router-dom'
 import PlanetDataGrid from './PlanetDataGrid'
+import InformationSelectorGrid from '../InformationSelectorGrid'
 
 function PlanetPage({planets}) {
     const {planet} = useParams()
@@ -14,8 +15,10 @@ function PlanetPage({planets}) {
                 </div>
 
                 <div id="description-block">
-                    <h1>Hello from {planetData.name}</h1>
-                    <p>{planetData.overview.content}</p>
+                    <h1>{planetData.name}</h1>
+                    <p id="description">{planetData.overview.content}</p>
+                    <p id="source">Source: <span className="source-link">WikiPedia</span></p>
+                    <InformationSelectorGrid/>
                 </div>
             </section>
             
