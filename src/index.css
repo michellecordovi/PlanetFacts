@@ -9,28 +9,101 @@ body{
     background-image: url(../public/assets/background-stars.svg);
     background-color: #070724;
     color: white;
+    font-family: "League Spartan", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+    text-transform: uppercase;
 }
+
+main{
+    padding: 100px 165px;
+}
+
+h1 {
+    font-family: "Antonio", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 80px;
+    line-height: 103px;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 25px;
+    letter-spacing: 2.6;
+}
+
+h3{
+    color: #838391;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 25px;
+    letter-spacing: 1px;
+}
+
+
 
 /* NAVIGATION BAR */
 header {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 2rem;
     border-bottom: 1px solid #979797;
+}
+
+#site-logo {
+    font-family: Antonio, Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight:500;
+    letter-spacing: -1.05px;
+    width: 110px;
 }
 
 ul {
     display: flex;
     list-style: none;
+    font-weight: 700;
 }
 
 li {
-    padding: 0px 0.75rem;
-    text-transform: uppercase;
+    padding: 0px 1.5rem;
 
     a{
-        color: inherit;
+        color: #838391;
+        font-weight: 700;
+        font-size: 11px;
+        line-height: 25px;
+        letter-spacing: 1px;
         text-decoration: none;
     }
+}
+
+
+
+
+/* PLANET PAGE */
+
+
+
+
+/* PLANET DATA */
+#planet-data-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2rem;
+}
+
+.data-grid-box{
+    border: 1px solid #979797;
+    padding: 1rem;
+}
+
+.data {
+    font-family: "Antonio", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 52px;
+    letter-spacing: -1.5;
 }

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import {NavLink} from 'react-router-dom'
 
 function NavBar() {
@@ -6,7 +5,7 @@ function NavBar() {
 
     return (
         <header>
-            <div>THE PLANETS</div>
+            <div id="site-logo">THE PLANETS</div>
             <nav>
                 <ul>
                     <li><NavLink to="/Mercury">Mercury</NavLink></li>
