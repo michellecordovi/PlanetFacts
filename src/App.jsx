@@ -8,8 +8,8 @@ function App() {
 
     const router = createBrowserRouter(createRoutesFromElements(
         <Route path="/" element={<Root />}>
-            <Route index element={<Navigate to="/Earth" replace />} />
-            <Route path="/:planet" element={<PlanetPage planets={planets} />} />
+            <Route index element={<Navigate to="/Earth/overview" replace />} />
+            <Route path="/:planet/:info" element={<PlanetPage planets={planets} />} />
         </Route>
     ))
 

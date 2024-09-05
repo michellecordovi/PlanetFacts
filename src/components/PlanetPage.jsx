@@ -1,15 +1,19 @@
 /* eslint-disable react/prop-types */
-import {useState, useEffect} from 'react'
+import {useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import PlanetDataGrid from './PlanetDataGrid'
 import InformationSelectorGrid from '../InformationSelectorGrid'
 
 function PlanetPage({planets}) {
-    const [selectedInformation, setSelectedInformation] = useState("overview")
-    const {planet} = useParams()
+    const {planet, info} = useParams()
     const planetData = planets.find(p => p.name.toLowerCase() === planet.toLowerCase())
  
-    
+    useEffect(()=>{
+        console.log(info)
+        console.log(planetData)
+    }, [info, planetData])
+
+
     //will select a color based on the planet that is currently selected
     function selectColor(){
         switch(planet){
@@ -31,16 +35,10 @@ function PlanetPage({planets}) {
                 return "#2d68f0";
         }
     }
- 
-    //this function returns the selected information back to overview whenever you click to see a new planet
-    useEffect(() => {
-        setSelectedInformation("overview");
-    },[planet])
-
 
     //function to determine displayed planet image
     function getPlanetImage(){
-        if (selectedInformation === "structure"){
+        if (info === "structure"){
             return planetData.images.internal;
         } else {
             return planetData.images.planet;
@@ -49,7 +47,7 @@ function PlanetPage({planets}) {
 
     //function to provide planet description based on selected information
     function getPlanetDescription() {
-        switch (selectedInformation) {
+        switch (info) {
             case "overview":
                 return planetData.overview.content;
             case "structure":
@@ -67,14 +65,14 @@ function PlanetPage({planets}) {
             <section id="planet-description-section">
                 <div id="planet-image-container">
                     <img src={getPlanetImage()} alt={`Animated image of the planet ${planet}`} />
-                    <img className={selectedInformation === "geology" ? "geology-image visible" : "geology-image not-visible"} src={planetData.images.geology} alt={`image of ${planet}'s geology`}/>
+                    <img className={info === "geology" ? "geology-image visible" : "geology-image not-visible"} src={planetData.images.geology} alt={`image of ${planet}'s geology`}/>
                 </div>
 
                 <div id="description-block">
                     <h1>{planetData.name}</h1>
                     <p id="description">{getPlanetDescription()}</p>
                     <p id="source">Source: <a className="source-link">Wikipedia</a></p>
-                    <InformationSelectorGrid selectColor={selectColor} selectedInformation={selectedInformation} setSelectedInformation={setSelectedInformation} />
+                    <InformationSelectorGrid selectColor={selectColor} />
                 </div>
             </section>
             

@@ -1,50 +1,42 @@
 /* eslint-disable react/prop-types */
 import {useEffect} from 'react'
+import {NavLink, useParams} from 'react-router-dom'
 
-function InformationSelectorGrid({selectColor, selectedInformation, setSelectedInformation}){
+function InformationSelectorGrid({selectColor}){
+    const {planet, info} = useParams()
+
     useEffect(() => {
         document.querySelectorAll(".information-selector-box").forEach(el => {
             el.style.backgroundColor = "";
         });
 
-        document.querySelector(`.${selectedInformation}`).style.backgroundColor = selectColor()
-    },[selectedInformation, selectColor])
+        document.querySelector(`.${info}`).style.backgroundColor = selectColor();
+    },[info, selectColor])
 
-
-    function handleClick(event){
-        if(event.currentTarget.classList.contains("overview")){
-            setSelectedInformation(() => {
-                return "overview"
-            })
-        } else if(event.currentTarget.classList.contains("structure")){
-            setSelectedInformation(() => {
-                return "structure"
-            })
-        } else if(event.currentTarget.classList.contains("geology")){
-            setSelectedInformation(() => {
-                return "geology"
-            })
-        }
-    }
-    
     return (
         <div id="information-selector-grid">
-            <div onClick={handleClick} className="information-selector-box overview">
-                <p className="selector-number">01</p>
-                <h2>Overview</h2>
-            </div>
+            <NavLink to={`/${planet}/overview`}>
+                <div className="information-selector-box overview">
+                    <p className="selector-number">01</p>
+                    <h2>Overview</h2>
+                </div>
+            </NavLink>
 
-            <div onClick={handleClick} className="information-selector-box structure">
-                <p className="selector-number">02</p>
-                <h2>Internal Structure</h2>
-            </div>
+            <NavLink to={`/${planet}/structure`}>
+                <div className="information-selector-box structure">
+                    <p className="selector-number">02</p>
+                    <h2>Internal Structure</h2>
+                </div>
+            </NavLink>
 
-            <div onClick={handleClick} className="information-selector-box geology">
-                <p className="selector-number">03</p>
-                <h2>Surface Geology</h2>
-            </div>
+            <NavLink to={`/${planet}/geology`}>
+                <div className="information-selector-box geology">
+                    <p className="selector-number">03</p>
+                    <h2>Surface Geology</h2>
+                </div>
+            </NavLink>
         </div>
     )
-};
+}
 
 export default InformationSelectorGrid;
