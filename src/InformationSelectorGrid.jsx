@@ -6,11 +6,14 @@ function InformationSelectorGrid({selectColor}){
     const {planet, info} = useParams()
 
     useEffect(() => {
+        // Remove background color from all boxes
         document.querySelectorAll(".information-selector-box").forEach(el => {
             el.style.backgroundColor = "";
         });
 
-        document.querySelector(`.${info}`).style.backgroundColor = selectColor();
+        // Apply background color to the selected box
+        const selectedBox= document.querySelector(`.${info}`)
+        selectedBox.style.backgroundColor = selectColor()
     },[info, selectColor])
 
     return (
