@@ -1,14 +1,21 @@
 import data from '../data.json'
-import NavBar from './components/NavBar';
+import Root from './components/Root'
+import PlanetPage from './components/PlanetPage'
+import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Navigate} from 'react-router-dom'
 
 function App() {
     const planets = data;
 
-    
+    const router = createBrowserRouter(createRoutesFromElements(
+        <Route path="/" element={<Root />}>
+            <Route index element={<Navigate to="/Earth" replace />} />
+            <Route path="/:planet" element={<PlanetPage planets={planets} />} />
+        </Route>
+    ))
+
     return (
         <>
-            <NavBar/>
-            <p> Hello from {planets[Math.floor(Math.random() * 8)].name}!</p>
+            <RouterProvider router={router}/>
         </>
     )
 

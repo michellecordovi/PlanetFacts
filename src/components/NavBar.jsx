@@ -1,17 +1,22 @@
+/* eslint-disable react/prop-types */
+import {NavLink} from 'react-router-dom'
+
 function NavBar() {
+
+
     return (
         <header>
             <div>THE PLANETS</div>
             <nav>
                 <ul>
-                    <li><a href="#">Mercury</a></li>
-                    <li><a href="#">Venus</a></li>
-                    <li><a href="#">Earth</a></li>
-                    <li><a href="#">Mars</a></li>
-                    <li><a href="#">Jupiter</a></li>
-                    <li><a href="#">Saturn</a></li>
-                    <li><a href="#">Uranus</a></li>
-                    <li><a href="#">Neptune</a></li>
+                    <li><NavLink to="/Mercury">Mercury</NavLink></li>
+                    <li><NavLink to="/Venus">Venus</NavLink></li>
+                    <li><NavLink to="/Earth">Earth</NavLink></li>
+                    <li><NavLink to="/Mars">Mars</NavLink></li>
+                    <li><NavLink to="/Jupiter">Jupiter</NavLink></li>
+                    <li><NavLink to="/Saturn">Saturn</NavLink></li>
+                    <li><NavLink to="/Uranus">Uranus</NavLink></li>
+                    <li><NavLink to="/Neptune">Neptune</NavLink></li>
                 </ul>  
             </nav>
         </header>
