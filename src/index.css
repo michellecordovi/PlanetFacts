@@ -45,12 +45,13 @@ h3{
 
 /* NAVIGATION BAR */
 header {
+    height: 85px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-    border-bottom: 1px solid #979797;
+    border-bottom: 1px solid #9797977e;
 }
 
 #site-logo {
@@ -78,6 +79,10 @@ li {
         letter-spacing: 1px;
         text-decoration: none;
     }
+
+    a:hover{
+        color: white;
+    }
 }
 
 
@@ -85,16 +90,33 @@ li {
 
 /* PLANET PAGE */
 #planet-description-section{
+    margin: 0px 0px 25px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: center;
 }
 
 #planet-image-container{
-    height: 600px;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+img {
+    transform: scale(0.8);
+}
+
+.visible {
+    width: 160px;
+    display: block;
+    position: absolute;
+    bottom: 5%;
+}
+
+.not-visible{
+    display: none;
 }
 
 #description, #source{

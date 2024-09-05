@@ -8,11 +8,20 @@ function PlanetPage({planets}) {
     const [selectedInformation, setSelectedInformation] = useState("overview")
     const {planet} = useParams()
     const planetData = planets.find(p => p.name.toLowerCase() === planet.toLowerCase())
-
+    
+    //this function returns the selected information back to overview whenever you click to see a new planet
     useEffect(() => {
-        console.log(selectedInformation)
-    },[selectedInformation])
+        setSelectedInformation("overview")
+    },[planet])
 
+    //function to determine displayed planet image
+    function getPlanetImage(){
+        if (selectedInformation === "structure"){
+            return planetData.images.internal;
+        } else {
+            return planetData.images.planet;
+        }
+    }
 
     //function to provide planet description based on selected information
     function getPlanetDescription() {
@@ -32,7 +41,8 @@ function PlanetPage({planets}) {
         <main>
             <section id="planet-description-section">
                 <div id="planet-image-container">
-                    <img src={planetData.images.planet} alt={`Animated image of the planet ${planet}`} />
+                    <img src={getPlanetImage()} alt={`Animated image of the planet ${planet}`} />
+                    <img className={selectedInformation === "geology" ? "geology-image visible" : "geology-image not-visible"} src={planetData.images.geology} alt={`image of ${planet}'s geology`}/>
                 </div>
 
                 <div id="description-block">
