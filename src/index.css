@@ -16,7 +16,7 @@ body{
 }
 
 main{
-    padding: 100px 165px;
+    padding: 50px 165px;
 }
 
 h1 {
@@ -84,7 +84,17 @@ li {
 
 
 /* PLANET PAGE */
+#planet-description-section{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
 
+#planet-image-container{
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 

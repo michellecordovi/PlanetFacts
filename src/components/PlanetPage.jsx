@@ -8,7 +8,11 @@ function PlanetPage({planets}) {
 
     return (
         <main>
-            <section id="planet-description">
+            <section id="planet-description-section">
+                <div id="planet-image-container">
+                    <img src={planetData.images.planet} alt={`Animated image of the planet ${planet}`} />
+                </div>
+
                 <div id="description-block">
                     <h1>Hello from {planetData.name}</h1>
                     <p>{planetData.overview.content}</p>
