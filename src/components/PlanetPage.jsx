@@ -8,11 +8,35 @@ function PlanetPage({planets}) {
     const [selectedInformation, setSelectedInformation] = useState("overview")
     const {planet} = useParams()
     const planetData = planets.find(p => p.name.toLowerCase() === planet.toLowerCase())
+ 
     
+    //will select a color based on the planet that is currently selected
+    function selectColor(){
+        switch(planet){
+            case "Mercury":
+                return "#419EBB";
+            case "Venus":
+                return "#EDA249";
+            case "Earth":
+                return "#6f2ed6";
+            case "Mars":
+                return "#D14C32";
+            case "Jupiter":
+                return "#D83A34";
+            case "Saturn":
+               return "#CD5120";      
+            case "Uranus":
+                return "#1ec2a4";
+            case "Neptune":
+                return "#2d68f0";
+        }
+    }
+ 
     //this function returns the selected information back to overview whenever you click to see a new planet
     useEffect(() => {
-        setSelectedInformation("overview")
+        setSelectedInformation("overview");
     },[planet])
+
 
     //function to determine displayed planet image
     function getPlanetImage(){
@@ -37,6 +61,7 @@ function PlanetPage({planets}) {
         }
     }
 
+
     return (
         <main>
             <section id="planet-description-section">
@@ -48,8 +73,8 @@ function PlanetPage({planets}) {
                 <div id="description-block">
                     <h1>{planetData.name}</h1>
                     <p id="description">{getPlanetDescription()}</p>
-                    <p id="source">Source: <span className="source-link">WikiPedia</span></p>
-                    <InformationSelectorGrid setSelectedInformation={setSelectedInformation} />
+                    <p id="source">Source: <a className="source-link">Wikipedia</a></p>
+                    <InformationSelectorGrid selectColor={selectColor} selectedInformation={selectedInformation} setSelectedInformation={setSelectedInformation} />
                 </div>
             </section>
             

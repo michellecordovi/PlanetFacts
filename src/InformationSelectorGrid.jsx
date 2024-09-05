@@ -1,5 +1,15 @@
 /* eslint-disable react/prop-types */
-function InformationSelectorGrid({setSelectedInformation}){
+import {useEffect} from 'react'
+
+function InformationSelectorGrid({selectColor, selectedInformation, setSelectedInformation}){
+    useEffect(() => {
+        document.querySelectorAll(".information-selector-box").forEach(el => {
+            el.style.backgroundColor = "";
+        });
+
+        document.querySelector(`.${selectedInformation}`).style.backgroundColor = selectColor()
+    },[selectedInformation, selectColor])
+
 
     function handleClick(event){
         if(event.currentTarget.classList.contains("overview")){
