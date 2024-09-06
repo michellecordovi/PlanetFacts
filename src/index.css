@@ -53,6 +53,12 @@ a{
     text-decoration: none;
 }
 
+@media only screen and (max-width: 1050px){
+    main{
+        padding: 25px 40px;
+    }
+}
+
 
 
 
@@ -97,6 +103,14 @@ li {
     }
 }
 
+@media only screen and (max-width: 930px){
+    header{
+        height: auto;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
 
 
 
@@ -105,6 +119,7 @@ li {
     margin: 0px 0px 25px;
     display: grid;
     grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
     align-items: center;
 }
 
@@ -114,6 +129,7 @@ li {
     justify-content: center;
     align-items: center;
     position: relative;
+    grid-row: 1 / span 2;
 }
 
 img {
@@ -179,6 +195,18 @@ img {
     cursor: pointer;
 }
 
+@media only screen and (max-width: 1050px){
+    #planet-description-section{
+        grid-template-columns: auto auto;
+        column-gap: 2rem;
+    }
+
+    #planet-image-container{
+        grid-row: 1/ span 1;
+        grid-column: 1/ span 2;
+    }
+}
+
 
 /* PLANET DATA */
 #planet-data-grid {
@@ -198,4 +226,15 @@ img {
     font-size: 40px;
     line-height: 52px;
     letter-spacing: -1.5px;
+}
+
+@media only screen and (max-width: 1050px){
+    #planet-data-grid{
+        column-gap: 0.5rem;
+    }
+
+    .data {
+        font-size: 24px;
+        line-height: 30px;
+    }
 }

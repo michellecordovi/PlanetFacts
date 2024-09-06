@@ -17,7 +17,7 @@ function InformationSelectorGrid({selectColor}){
     },[info, selectColor])
 
     return (
-        <div id="information-selector-grid">
+        <section id="information-selector-grid">
             <NavLink to={`/${planet}/overview`}>
                 <div className="information-selector-box overview">
                     <p className="selector-number">01</p>
@@ -38,7 +38,7 @@ function InformationSelectorGrid({selectColor}){
                     <h2>Surface Geology</h2>
                 </div>
             </NavLink>
-        </div>
+        </section>
     )
 }
 
