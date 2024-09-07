@@ -29,7 +29,7 @@ function App() {
     }
 
     const router = createBrowserRouter(createRoutesFromElements(
-        <Route path="/" element={<Root />}>
+        <Route path="/" element={<Root planets={planets} />}>
             <Route index element={<Navigate to="/Earth/overview" replace />} />
             <Route path="/:planet/:info" element={<PlanetPage planets={planets} selectColor={selectColor} />} />
         </Route>

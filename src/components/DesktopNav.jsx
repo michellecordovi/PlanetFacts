@@ -1,19 +1,17 @@
+/* eslint-disable react/prop-types */
 import {NavLink} from 'react-router-dom'
 
-function DesktopNav() {
+function DesktopNav({planets}) {
     return (
-        <header>
+        <header id="desktop-header">
             <div id="site-logo">THE PLANETS</div>
             <nav>
                 <ul>
-                    <li><NavLink to="/Mercury/overview">Mercury</NavLink></li>
-                    <li><NavLink to="/Venus/overview">Venus</NavLink></li>
-                    <li><NavLink to="/Earth/overview">Earth</NavLink></li>
-                    <li><NavLink to="/Mars/overview">Mars</NavLink></li>
-                    <li><NavLink to="/Jupiter/overview">Jupiter</NavLink></li>
-                    <li><NavLink to="/Saturn/overview">Saturn</NavLink></li>
-                    <li><NavLink to="/Uranus/overview">Uranus</NavLink></li>
-                    <li><NavLink to="/Neptune/overview">Neptune</NavLink></li>
+                    {planets.map(planet => (
+                        <li key={planet.name}>
+                            <NavLink to={`/${planet.name}/overview`}>{planet.name}</NavLink>
+                        </li>
+                    ))}
                 </ul>  
             </nav>
         </header>
