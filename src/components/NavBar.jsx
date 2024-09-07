@@ -19,7 +19,7 @@ function NavBar({planets, selectColor}) {
     }, [])
 
 
-    return isDesktop ? <DesktopNav planets={planets} /> : <MobileNav planets={planets} selectColor={selectColor}/>;
+    return isDesktop ? <DesktopNav planets={planets} selectColor={selectColor} /> : <MobileNav planets={planets} selectColor={selectColor}/>;
 }
 
 export default NavBar;

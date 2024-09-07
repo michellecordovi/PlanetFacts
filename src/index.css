@@ -72,6 +72,7 @@ header {
 }
 
 nav{
+    height: 100%;
     display: flex;
     align-items: center;
 }
@@ -86,13 +87,18 @@ nav{
 }
 
 ul {
+    height: 100%;
     display: flex;
+    align-items: center;
     list-style: none;
     font-weight: 700;
 }
 
 li {
     padding: 0px 1.5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
 
     a{
         color: #838391;
@@ -181,7 +187,7 @@ li {
 @media only screen and (max-width: 930px){
     header{
         padding: 1rem 0px;
-        height: auto;
+        height: 150px;
         flex-direction: column;
         gap: 2rem;
     }
@@ -268,6 +274,10 @@ img {
     gap: 1rem;
     border: 1px solid #9797977e;
     cursor: pointer;
+}
+
+.information-selector-box:hover{
+    background-color:#D8D8D8;
 }
 
 @media only screen and (max-width: 1050px){
