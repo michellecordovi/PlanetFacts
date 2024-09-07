@@ -13,8 +13,8 @@ function InformationSelectorGrid({selectColor}){
 
         // Apply background color to the selected box
         const selectedBox= document.querySelector(`.${info}`)
-        selectedBox.style.backgroundColor = selectColor()
-    },[info, selectColor])
+        selectedBox.style.backgroundColor = selectColor(planet)
+    },[info, planet, selectColor])
 
     return (
         <section id="information-selector-grid">

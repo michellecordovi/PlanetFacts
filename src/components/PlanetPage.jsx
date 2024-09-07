@@ -1,40 +1,11 @@
 /* eslint-disable react/prop-types */
-import {useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import PlanetDataGrid from './PlanetDataGrid'
 import InformationSelectorGrid from './InformationSelectorGrid'
 
-function PlanetPage({planets}) {
+function PlanetPage({planets, selectColor}) {
     const {planet, info} = useParams()
     const planetData = planets.find(p => p.name.toLowerCase() === planet.toLowerCase())
- 
-    useEffect(()=>{
-        console.log(info)
-        console.log(planetData)
-    }, [info, planetData])
-
-
-    //will select a color based on the planet that is currently selected
-    function selectColor(){
-        switch(planet){
-            case "Mercury":
-                return "#419EBB";
-            case "Venus":
-                return "#EDA249";
-            case "Earth":
-                return "#6f2ed6";
-            case "Mars":
-                return "#D14C32";
-            case "Jupiter":
-                return "#D83A34";
-            case "Saturn":
-               return "#CD5120";      
-            case "Uranus":
-                return "#1ec2a4";
-            case "Neptune":
-                return "#2d68f0";
-        }
-    }
 
     //function to determine displayed planet image
     function getPlanetImage(){
