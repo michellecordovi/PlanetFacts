@@ -3,7 +3,7 @@ import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
 import {useState, useEffect} from 'react'
 
-function NavBar({planets}) {
+function NavBar({planets, selectColor}) {
     const [isDesktop, setIsDesktop] = useState(window.innerWidth > 740)
 
     useEffect(() => {
@@ -19,7 +19,7 @@ function NavBar({planets}) {
     }, [])
 
 
-    return isDesktop ? <DesktopNav planets={planets} /> : <MobileNav planets={planets}/>;
+    return isDesktop ? <DesktopNav planets={planets} /> : <MobileNav planets={planets} selectColor={selectColor}/>;
 }
 
 export default NavBar;

@@ -3,7 +3,7 @@
 import {NavLink} from 'react-router-dom'
 import {useState} from 'react'
 
-function MobileNav({planets}) {
+function MobileNav({planets, selectColor}) {
     const [isHidden, setIsHidden] = useState(true)
     
     function handleHamburgerClick(){
@@ -22,7 +22,11 @@ function MobileNav({planets}) {
                 <ul>
                     {planets.map(planet => (
                         <li key={planet.name}>
-                            <NavLink onClick={handleLinkClick} to={`/${planet.name}/overview`}>{planet.name}</NavLink>
+                            <NavLink onClick={handleLinkClick} to={`/${planet.name}/overview`}>
+                                <div className="nav-color-code" style={{backgroundColor: selectColor(planet.name)}}></div>
+                                <div className="mobile-nav-planet-name">{planet.name}</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="8"><path fill="none" stroke="#FFF" opacity=".4" d="M1 0l4 4-4 4"/></svg>
+                            </NavLink>
                         </li>
                     ))}
                 </ul>  

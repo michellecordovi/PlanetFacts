@@ -2,10 +2,10 @@
 import { Outlet } from 'react-router-dom'
 import NavBar from './NavBar'
 
-function Root({planets}) {
+function Root({planets, selectColor}) {
     return (
         <>
-            <NavBar planets={planets} />
+            <NavBar planets={planets} selectColor={selectColor} />
             <Outlet/>
         </>
     )
