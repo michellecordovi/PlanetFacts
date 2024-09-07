@@ -155,6 +155,7 @@ li {
 
     li {
         height: 100%;
+        width: 100%;
         padding: 0px 1.5rem;
     }
 
@@ -162,6 +163,7 @@ li {
         border-top: 1px solid #9797977e;
         font-size: 15px;
         height: 100%;
+        width: 100%;
         color: white;
         display: flex; 
         align-items: center;
