@@ -1,11 +1,26 @@
 /* eslint-disable react/prop-types */
 import {useParams} from 'react-router-dom'
+import {useState, useEffect} from 'react'
 import PlanetDataGrid from './PlanetDataGrid'
 import InformationSelectorGrid from './InformationSelectorGrid'
 
 function PlanetPage({planets, selectColor}) {
     const {planet, info} = useParams()
     const planetData = planets.find(p => p.name.toLowerCase() === planet.toLowerCase())
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 740)
+
+    useEffect(() => {
+        function handleResize() {
+            setIsMobile(window.innerWidth < 740)
+        };
+
+        window.addEventListener("resize", handleResize)
+
+        return () => {
+            window.removeEventListener("resize", handleResize)
+        };
+    }, [])
 
     //function to determine displayed planet image
     function getPlanetImage(){
@@ -33,9 +48,12 @@ function PlanetPage({planets, selectColor}) {
 
     return (
         <main>
+            {isMobile ? <InformationSelectorGrid selectColor={selectColor} /> : ''}
+
             <section id="planet-description-section">
+
                 <div id="planet-image-container">
-                    <img src={getPlanetImage()} alt={`Animated image of the planet ${planet}`} />
+                    <img className ="planet-image" src={getPlanetImage()} alt={`Animated image of the planet ${planet}`} />
                     <img className={info === "geology" ? "geology-image visible" : "geology-image not-visible"} src={planetData.images.geology} alt={`image of ${planet}'s geology`}/>
                 </div>
 
@@ -49,7 +67,7 @@ function PlanetPage({planets, selectColor}) {
                     </div>
                 </div>
 
-                <InformationSelectorGrid selectColor={selectColor} />
+                {!isMobile ? <InformationSelectorGrid selectColor={selectColor} /> : ''}
                 
             </section>
             
