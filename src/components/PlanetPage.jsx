@@ -48,7 +48,7 @@ function PlanetPage({planets, selectColor}) {
 
     return (
         <main>
-            {isMobile ? <InformationSelectorGrid selectColor={selectColor} /> : ''}
+            {isMobile ? <InformationSelectorGrid selectColor={selectColor} isMobile={isMobile} setIsMobile={setIsMobile} /> : ''}
 
             <section id="planet-description-section">
 
@@ -67,7 +67,7 @@ function PlanetPage({planets, selectColor}) {
                     </div>
                 </div>
 
-                {!isMobile ? <InformationSelectorGrid selectColor={selectColor} /> : ''}
+                {!isMobile ? <InformationSelectorGrid selectColor={selectColor} isMobile={isMobile} setIsMobile={setIsMobile} /> : ''}
                 
             </section>
             
