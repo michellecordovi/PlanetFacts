@@ -301,6 +301,10 @@ img {
         column-gap: 2rem;
     }
 
+    #description-block{
+        gap: 1rem;
+    }
+
     #planet-image-container{
         grid-row: 1/ span 1;
         grid-column: 1/ span 2;
@@ -316,12 +320,12 @@ img {
         text-align: center;
     }
 
-    #description-block{
-        gap: 2rem;
-    }
-
     #planet-image-container{
         height: 100%;
+    }
+
+    #description-block{
+        gap: 2rem;
     }
 
     #information-selector-grid {
